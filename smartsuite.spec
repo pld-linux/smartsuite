@@ -4,6 +4,7 @@
 #
 Summary:	UCSC SMART suite - S.M.A.R.T. utility for Linux
 Summary(pl):	UCSC SMART suite - obs³uga S.M.A.R.T. dla Linuksa
+Summary(pt_BR): Conjunto de utilitários SMART para Linux
 Name:		smartsuite
 Version:	2.1
 Release:	2
@@ -34,6 +35,12 @@ wiarygodno¶æ dysków i przewidywaæ awarie. Pakiet zawiera dwa programy:
 smartctl (obs³ugiwany z linii poleceñ) i smartd (demon regularnie
 monitoruj±cy stan dysków).
 
+%description -l pt_BR
+SMART suite controla e monitora dispositivos de armazenamento usando o
+sistema de auto-monitoração e análise existente em discos rígidos ATA e
+SCSI. Esse sistema é utilizado para verificar a confiabilidade do disco
+e prever falhas no equipamento.
+
 %prep
 %setup -q
 
@@ -48,8 +55,6 @@ install -d $RPM_BUILD_ROOT/etc/rc.d/init.d
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/smartd
 install smartd smartctl $RPM_BUILD_ROOT%{_sbindir}
 install smartd.8 smartctl.8 $RPM_BUILD_ROOT%{_mandir}/man8
-
-gzip -9nf CHANGELOG README TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -72,7 +77,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc CHANGELOG README TODO
 %attr(755,root,root) %{_sbindir}/*
 %attr(754,root,root) /etc/rc.d/init.d/smartd
 %{_mandir}/man8/*
