@@ -3,7 +3,7 @@ Summary(pl):	UCSC SMART suite - obs³uga S.M.A.R.T. dla Linuksa
 Summary(pt_BR):	Conjunto de utilitários SMART para Linux
 Name:		smartsuite
 Version:	2.1
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/smartsuite/%{name}-%{version}.tar.gz
