@@ -9,6 +9,7 @@ Group:		Applications/System
 Source0:	http://dl.sourceforge.net/smartsuite/%{name}-%{version}.tar.gz
 # Source0-md5:	f793fa1ed6419090af1c8e45cc052805
 Source1:	%{name}.init
+Patch0:		%{name}-u8.patch
 URL:		http://csl.cse.ucsc.edu/smart.shtml
 PreReq:		rc-scripts
 Requires(post,preun):	/sbin/chkconfig
@@ -40,6 +41,7 @@ e prever falhas no equipamento.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__make} CC="%{__cc}" CFLAGS="%{rpmcflags} -fsigned-char -DLINUX"
