@@ -1,6 +1,6 @@
 Summary:	UCSC SMART suite - S.M.A.R.T. utility for Linux
 Summary(pl):	UCSC SMART suite - obs³uga S.M.A.R.T. dla Linuksa
-Summary(pt_BR): Conjunto de utilitários SMART para Linux
+Summary(pt_BR):	Conjunto de utilitários SMART para Linux
 Name:		smartsuite
 Version:	2.1
 Release:	3
