@@ -7,7 +7,7 @@ Summary(pl):	UCSC SMART suite - obs³uga S.M.A.R.T. dla Linuksa
 Summary(pt_BR): Conjunto de utilitários SMART para Linux
 Name:		smartsuite
 Version:	2.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/System
 Source0:	http://prdownloads.sourceforge.net/smartsuite/%{name}-%{version}.tar.gz
@@ -49,8 +49,8 @@ e prever falhas no equipamento.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man8}
-install -d $RPM_BUILD_ROOT/etc/rc.d/init.d
+install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man8} \
+	$RPM_BUILD_ROOT/etc/rc.d/init.d
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/rc.d/init.d/smartd
 install smartd smartctl $RPM_BUILD_ROOT%{_sbindir}
