@@ -1,3 +1,7 @@
+#
+# Conditional build:
+# _without_dist_kernel - build package with own kernel headers/source
+#
 Summary:	UCSC SMART suite - S.M.A.R.T. utility for Linux
 Summary(pl):	UCSC SMART suite - obs³uga S.M.A.R.T. dla Linuksa
 Name:		smartsuite
@@ -9,7 +13,7 @@ Source0:	http://prdownloads.sourceforge.net/smartsuite/%{name}-%{version}.tar.gz
 Source1:	%{name}.init
 URL:		http://csl.cse.ucsc.edu/smart.shtml
 Prereq:		/sbin/chkconfig
-BuildRequires:	kernel-headers
+%{!?_without_dist_kernel:BuildRequires:         kernel-headers }
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	smartctl
 Obsoletes:	ucsc-smartsuite
