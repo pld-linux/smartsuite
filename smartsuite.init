@@ -57,7 +57,7 @@ case "$1" in
 	else
 		# show "%s service is not running." smartd
 		msg_not_running smartd >&2
-		RETVAL=7
+		exit 7
 	fi
 	;;
   status)
