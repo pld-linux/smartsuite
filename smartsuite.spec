@@ -62,17 +62,17 @@ rm -rf $RPM_BUILD_ROOT
 %post
 /sbin/chkconfig --add smartd
 if [ -f /var/lock/subsys/smartd ]; then
-        /etc/rc.d/init.d/smartd restart 1>&2
+	/etc/rc.d/init.d/smartd restart 1>&2
 else
-        echo "Run \"/etc/rc.d/init.d/smartd start\" to start smartd service."
+	echo "Run \"/etc/rc.d/init.d/smartd start\" to start smartd service."
 fi
 
 %preun
 if [ "$1" = "0" ]; then
-        if [ -f /var/lock/subsys/smartd ]; then
-                /etc/rc.d/init.d/smartd stop 1>&2
-        fi
-        /sbin/chkconfig --del smartd
+	if [ -f /var/lock/subsys/smartd ]; then
+		/etc/rc.d/init.d/smartd stop 1>&2
+	fi
+	 /sbin/chkconfig --del smartd
 fi
 
 %files
