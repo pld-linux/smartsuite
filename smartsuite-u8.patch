@@ -1,0 +1,11 @@
+--- smartsuite-2.1/atacmds.c.org	2000-09-13 07:00:00.000000000 +0000
++++ smartsuite-2.1/atacmds.c	2004-02-22 22:45:03.000000000 +0000
+@@ -19,6 +19,8 @@
+ #include <string.h>
+ #include "atacmds.h"
+ 
++typedef unsigned char u8;
++
+ int ataReadHDIdentity ( int device, struct hd_driveid *buf)
+ {
+    if (ioctl ( device , HDIO_GET_IDENTITY, buf ) != 0)
