@@ -7,6 +7,7 @@ Release:	3
 License:	GPL
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/smartsuite/%{name}-%{version}.tar.gz
+# Source0-md5:	f793fa1ed6419090af1c8e45cc052805
 Source1:	%{name}.init
 URL:		http://csl.cse.ucsc.edu/smart.shtml
 PreReq:		rc-scripts
