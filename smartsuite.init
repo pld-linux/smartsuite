@@ -15,7 +15,7 @@
 # Get service config - may override defaults
 [ -f /etc/sysconfig/smartd ] && . /etc/sysconfig/smartd
 
-
+RETVAL=0
 # See how we were called.
 case "$1" in
   start)
@@ -29,7 +29,6 @@ case "$1" in
 	else
 		# show "%s service is already running." smartd
 		msg_already_running smartd
-		exit 1
 	fi
 	;;
   stop)
@@ -38,17 +37,16 @@ case "$1" in
 	if [ -f /var/lock/subsys/smartd ]; then
 		msg_stopping smartd
 		killproc smartd
-		RETVAL=$?
 		rm -f /var/lock/subsys/smartd
 	else
 		# show "%s service is not running." smartd
 		msg_not_running smartd
-		exit 1
 	fi	
 	;;
   restart)
 	$0 stop
 	$0 start
+	exit $?
 	;;
   reload|force-reload)
 	if [ -f /var/lock/subsys/smartd ]; then
@@ -58,18 +56,18 @@ case "$1" in
 		RETVAL=$?
 	else
 		# show "%s service is not running." smartd
-		msg_not_running smartd
-		RETVAL=1
+		msg_not_running smartd >&2
+		RETVAL=7
 	fi
 	;;
   status)
 	status smartd
-	RETVAL=$?
+	exit $?
 	;;
   *)
 	# show "Usage: %s {start|stop|restart|reload|force-reload|status}"
 	msg_usage "$0 {start|stop|restart|reload|force-reload|status}"
-	exit 1
+	exit 3
 esac
 
 exit $RETVAL
