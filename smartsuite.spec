@@ -3,7 +3,7 @@ Summary(pl):	UCSC SMART suite - obs³uga S.M.A.R.T. dla Linuksa
 Summary(pt_BR):	Conjunto de utilitários SMART para Linux
 Name:		smartsuite
 Version:	2.1
-Release:	4
+Release:	5
 License:	GPL
 Group:		Applications/System
 Source0:	http://dl.sourceforge.net/smartsuite/%{name}-%{version}.tar.gz
@@ -15,6 +15,7 @@ PreReq:		rc-scripts
 Requires(post,preun):	/sbin/chkconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	smartctl
+Obsoletes:	smartmontools
 Obsoletes:	ucsc-smartsuite
 
 %description
