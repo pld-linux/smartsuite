@@ -37,7 +37,7 @@ case "$1" in
 		rm -f /var/lock/subsys/smartd
 	else
 		msg_not_running smartd
-	fi	
+	fi
 	;;
   restart)
 	$0 stop
