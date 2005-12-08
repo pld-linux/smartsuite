@@ -21,25 +21,21 @@ case "$1" in
   start)
 	# Check if the service is already running?
 	if [ ! -f /var/lock/subsys/smartd ]; then
-		# show "Starting %s service." smartd
 		msg_starting smartd
 		daemon smartd </dev/null
 		RETVAL=$?
 		[ $RETVAL -eq 0 ] && touch /var/lock/subsys/smartd
 	else
-		# show "%s service is already running." smartd
 		msg_already_running smartd
 	fi
 	;;
   stop)
 	# Stop daemons.
-	# show "Stopping %s service" smartd
 	if [ -f /var/lock/subsys/smartd ]; then
 		msg_stopping smartd
 		killproc smartd
 		rm -f /var/lock/subsys/smartd
 	else
-		# show "%s service is not running." smartd
 		msg_not_running smartd
 	fi	
 	;;
@@ -50,12 +46,10 @@ case "$1" in
 	;;
   reload|force-reload)
 	if [ -f /var/lock/subsys/smartd ]; then
-		# show "Reload %s service" smartd
 		msg_reloading smartd
 		killproc smartd -HUP
 		RETVAL=$?
 	else
-		# show "%s service is not running." smartd
 		msg_not_running smartd >&2
 		exit 7
 	fi
@@ -65,7 +59,6 @@ case "$1" in
 	exit $?
 	;;
   *)
-	# show "Usage: %s {start|stop|restart|reload|force-reload|status}"
 	msg_usage "$0 {start|stop|restart|reload|force-reload|status}"
 	exit 3
 esac
