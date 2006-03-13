@@ -11,12 +11,13 @@ Source0:	http://dl.sourceforge.net/smartsuite/%{name}-%{version}.tar.gz
 Source1:	%{name}.init
 Patch0:		%{name}-u8.patch
 URL:		http://csl.cse.ucsc.edu/smart.shtml
-PreReq:		rc-scripts
+BuildRequires:	rpmbuild(macros) >= 1.268
 Requires(post,preun):	/sbin/chkconfig
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Requires:	rc-scripts
 Obsoletes:	smartctl
 Obsoletes:	smartmontools
 Obsoletes:	ucsc-smartsuite
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 UCSC SMART suite controls and monitors storage devices uning the
@@ -61,18 +62,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 /sbin/chkconfig --add smartd
-if [ -f /var/lock/subsys/smartd ]; then
-	/etc/rc.d/init.d/smartd restart 1>&2
-else
-	echo "Run \"/etc/rc.d/init.d/smartd start\" to start smartd service."
-fi
+%service smartd restart "smartd service"
 
 %preun
 if [ "$1" = "0" ]; then
-	if [ -f /var/lock/subsys/smartd ]; then
-		/etc/rc.d/init.d/smartd stop 1>&2
-	fi
-	 /sbin/chkconfig --del smartd
+	%service smartd stop
+	/sbin/chkconfig --del smartd
 fi
 
 %files
