@@ -1,6 +1,6 @@
 Summary:	UCSC SMART suite - S.M.A.R.T. utility for Linux
-Summary(pl):	UCSC SMART suite - obs³uga S.M.A.R.T. dla Linuksa
-Summary(pt_BR):	Conjunto de utilitários SMART para Linux
+Summary(pl.UTF-8):   UCSC SMART suite - obsÅ‚uga S.M.A.R.T. dla Linuksa
+Summary(pt_BR.UTF-8):   Conjunto de utilitÃ¡rios SMART para Linux
 Name:		smartsuite
 Version:	2.1
 Release:	6
@@ -28,17 +28,17 @@ contents two utilities, smartctl is a command line utility designed to
 perform simple S.M.A.R.T. tasks. And smartd is a daemon that
 periodically monitors smart status and reports errors to syslog.
 
-%description -l pl
-USCS SMART suite s³u¿y do kontroli i monitorowania urz±dzeñ z systemem
-S.M.A.R.T., takich jak dyski ATA i SCSI. System ten pozwala okre¶laæ
-wiarygodno¶æ dysków i przewidywaæ awarie. Pakiet zawiera dwa programy:
-smartctl (obs³ugiwany z linii poleceñ) i smartd (demon regularnie
-monitoruj±cy stan dysków).
+%description -l pl.UTF-8
+USCS SMART suite sÅ‚uÅ¼y do kontroli i monitorowania urzÄ…dzeÅ„ z systemem
+S.M.A.R.T., takich jak dyski ATA i SCSI. System ten pozwala okreÅ›laÄ‡
+wiarygodnoÅ›Ä‡ dyskÃ³w i przewidywaÄ‡ awarie. Pakiet zawiera dwa programy:
+smartctl (obsÅ‚ugiwany z linii poleceÅ„) i smartd (demon regularnie
+monitorujÄ…cy stan dyskÃ³w).
 
-%description -l pt_BR
+%description -l pt_BR.UTF-8
 SMART suite controla e monitora dispositivos de armazenamento usando o
-sistema de auto-monitoração e análise existente em discos rígidos ATA e
-SCSI. Esse sistema é utilizado para verificar a confiabilidade do disco
+sistema de auto-monitoraÃ§Ã£o e anÃ¡lise existente em discos rÃ­gidos ATA e
+SCSI. Esse sistema Ã© utilizado para verificar a confiabilidade do disco
 e prever falhas no equipamento.
 
 %prep
