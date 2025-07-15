@@ -43,7 +43,7 @@ disco e prever falhas no equipamento.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__make} CC="%{__cc}" CFLAGS="%{rpmcflags} -fsigned-char -DLINUX"
